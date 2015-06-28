@@ -38,10 +38,16 @@ public class DAOCategoria implements Interface.InterfaceDAOCategoria{
         session.close();
         return list;
     }
+    
 
     @Override
     public Categoria getById(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session=HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction=session.beginTransaction();
+        Categoria categoria=(Categoria)session.get(Categoria.class, id);
+        transaction.commit();
+        session.close();
+        return categoria;
     }
 
     @Override

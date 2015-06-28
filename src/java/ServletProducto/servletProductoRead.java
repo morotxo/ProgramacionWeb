@@ -8,6 +8,7 @@ package ServletProducto;
 import EJB.EJBProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +38,7 @@ public class servletProductoRead extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ejbProducto=new EJBProducto();
         ejbProducto.getAll();
+        out.println(ejbProducto.getListaProducto().get(0).getCategoria().getIdCategoria());
         request.setAttribute("ejbProducto", ejbProducto);
         request.getRequestDispatcher("producto/read.jsp").forward(request, response);
     }

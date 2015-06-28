@@ -33,7 +33,7 @@ al         <jsp:useBean id="ejbProducto" scope="request" class="EJB.EJBProducto"
                     <td>${item.getDescripcion()}</td>
                     <td>${item.getPrecio()}</td>
                     <td>${item.getMarca()}</td>
-                    <td>Nada</td>
+                    <td>${item.getCategoria().getIdCategoria()}</td>
                     <td>${item.getStock()}</td>
                     <td><input id="${item.getIdProducto()}" type="button" onclick ="editarProducto(this.id);" value="Editar"></td>
                 </tr>

@@ -5,6 +5,7 @@
  */
 package ServletProducto;
 
+import EJB.EJBCategoria;
 import EJB.EJBProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class servletProductoUpdate extends HttpServlet {
     @EJB
     private EJBProducto ejbProducto;
+    private EJBCategoria ejbCategoria;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,18 +50,14 @@ public class servletProductoUpdate extends HttpServlet {
             request.getRequestDispatcher("producto/update.jsp").forward(request, response);
         }
         if (request.getMethod().equals("POST")){
-            out.println("1");
             ejbProducto=new EJBProducto();
-            out.println("2");
-            out.println(">>>>>>>>>>>>>>>>: "+request.getParameter("txtID"));
-            out.println(">>>>>>>>>>>>>>>>: "+request.getParameter("txtdescripcion"));
+            ejbCategoria=new EJBCategoria();
+            ejbCategoria.getCategoria().setIdCategoria(Integer.valueOf(request.getParameter("txtcategoria")));
+            ejbCategoria.getByID();
             ejbProducto.getProducto().setIdProducto(Integer.valueOf(request.getParameter("txtID")));
-//            ejbProducto.getProducto().setIdProducto(1));
-            out.println("3");
             ejbProducto.getProducto().setDescripcion(request.getParameter("txtdescripcion"));
-            out.println("4");
             ejbProducto.getProducto().setMarca(request.getParameter("txtmarca"));
-            ejbProducto.getProducto().setCategoria();
+            ejbProducto.getProducto().setCategoria(ejbCategoria.getCategoria());
             ejbProducto.getProducto().setPrecio(Double.parseDouble(request.getParameter("txtprecio")));
             ejbProducto.getProducto().setStock(Integer.valueOf(request.getParameter("txtstock")));
             boolean retorno=ejbProducto.update();

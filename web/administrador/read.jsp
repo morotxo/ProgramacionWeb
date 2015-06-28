@@ -42,7 +42,7 @@
         </table>
     </body>
     <script>
-        function editarAdmin(id,email){
+        function editarAdmin(id){
             window.location.href="servletAdminUpdate?id="+id;
         }
     </script>

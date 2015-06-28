@@ -24,7 +24,7 @@
             <label for="txtmarca">Marca</label><br>
             <input type="text" id="txtmarca" name="txtmarca" value="${ejbProducto.producto.marca}"><br>
             <label for="txtcategoria">Categoria</label><br>
-            <input type="text" id="txtcategoria" name="txtcategoria" value="${ejbProducto.producto.categoria}"><br>
+            <input type="text" id="txtcategoria" name="txtcategoria" value="${ejbProducto.producto.categoria.idCategoria}"><br>
             <label for="txtstock">Stock</label><br>
             <input type="text" id="txtstock" name="txtstock"value="${ejbProducto.producto.stock}"><br>
 

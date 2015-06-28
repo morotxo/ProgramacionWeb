@@ -65,6 +65,7 @@ public class EJBProducto {
     public List<Producto> getListaProducto() {
         return listaProducto;
     }
+    
     public boolean getAll(){
         try{
             listaProducto = daoProducto.getAll();

@@ -42,6 +42,15 @@ public class EJBCategoria {
             return false;
         }
     }
+    public boolean getByID(){
+        try{
+            categoria=daoCategoria.getById(categoria.getIdCategoria());
+            return true;
+        }catch(Exception ex){
+            out.println(ex.getMessage());
+            return false;
+        }
+    }
 
     public Categoria getCategoria() {
         return categoria;

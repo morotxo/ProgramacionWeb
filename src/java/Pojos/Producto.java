@@ -41,6 +41,9 @@ public class Producto  implements java.io.Serializable {
     public Categoria getCategoria() {
         return this.categoria;
     }
+    public String getNombreCategoria() {
+        return this.categoria.getNombre();
+    }
     
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
